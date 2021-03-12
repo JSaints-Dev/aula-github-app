@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 const Avatar = ({ urlImg }) => {
   return (
     <ContainerAvatar>
-      <img src={urlImg} alt="" />
+      <img src={urlImg} alt="foto" />
     </ContainerAvatar>
   );
 };
