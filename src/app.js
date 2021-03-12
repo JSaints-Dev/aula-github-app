@@ -13,9 +13,9 @@ const App = () => {
     axios.get(userUrl).then((res) => setUserInfo(res.data));
   };
 
-  const handleSearch = (event) => {
-    const value = event.target.value;
-    const keyCode = event.which || event.keyCode;
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    const keyCode = e.which || e.keyCode;
 
     if (keyCode === 13) getApi(value);
 
