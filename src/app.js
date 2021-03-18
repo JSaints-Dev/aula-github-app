@@ -6,11 +6,22 @@ import Search from "./components/search";
 
 const App = () => {
   const [userInfo, setUserInfo] = useState(null);
+  const [userRepos, setUserRepos] = useState(null);
   const [valueInput, setValueInput] = useState("");
 
   const getApi = (value) => {
     const userUrl = `https://api.github.com/users/${value}`;
-    axios.get(userUrl).then((res) => setUserInfo(res.data));
+    axios
+      .get(userUrl)
+      .then((res) => setUserInfo(res.data))
+      .finally(() => {
+        setUserRepos(null);
+        setValueInput("");
+      });
+  };
+
+  const getRepos = (reposUrl) => {
+    axios.get(reposUrl).then((res) => setUserRepos(res.data));
   };
 
   const handleSearch = (e) => {
@@ -25,7 +36,9 @@ const App = () => {
   return (
     <Container>
       <Search valueInput={valueInput} handleSearch={handleSearch} />
-      {!!userInfo && <Home userInfo={userInfo} />}
+      {!!userInfo && (
+        <Home userInfo={userInfo} getRepos={getRepos} userRepos={userRepos} />
+      )}
     </Container>
   );
 };
