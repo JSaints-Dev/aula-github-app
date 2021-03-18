@@ -42,7 +42,6 @@ const Infos = ({ userInfo }) => {
 };
 
 const UserInfo = ({ userInfo }) => {
-  console.log(userInfo);
   return (
     <ContainerUserInfo>
       <Grid container spacing={2} justify="center" alignItems="center">
@@ -61,12 +60,14 @@ const UserInfo = ({ userInfo }) => {
 const ContainerUserInfo = styled.div`
   align-items: center;
   display: flex;
-  background-color: orange;
-  height: 40%;
+  background-color: #1d2834;
+  height: 100%;
   width: 100%;
 `;
 
-const ContainerInfos = styled(Grid)``;
+const ContainerInfos = styled(Grid)`
+  color: white;
+`;
 
 const ContainerAvatar = styled.div`
   height: 100%;
